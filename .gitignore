@@ -1,3 +1,5 @@
-simple-education-dev-kanji-checker-0.0.1.tgz
-dist
+node_modules
 package-lock.json
+dist
+
+simple-education-dev-kanji-checker-0.0.1.tgz
