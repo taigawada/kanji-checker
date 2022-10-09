@@ -1,6 +1,7 @@
 {
   "name": "@simple-education-dev/kanji-checker",
-  "version": "0.0.1",
+  "private": false,
+  "version": "0.0.1-alpha1",
   "description": "",
   "main": "dist/kanji-checker.js",
   "bin": {
