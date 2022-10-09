@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import * as fs from 'fs/promises';
 import path from 'path';
-import { Spinner } from './loading';
+import Spinner from './loading';
 
 type Kanji = string;
 const filenameToGradeIndex = (filename: string) => parseInt(filename.replace(/[^0-9]/g, ''));
@@ -34,13 +34,13 @@ async function kanjiChecker () {
             for (var i = 0; i < json[key].length; ++i) {
                 if (isKanji(json[key].charAt(i))) {
                     const kanji: Kanji = json[key].charAt(i);
-                    let gradeIndex = 0;
+                    let gradeIndex = 1;
                     let match = false;
-                    while (!match && gradeIndex < filenameToGradeIndex(fileList[fileIndex])) {
-                        if (kanjiTemplates[filenametoGrade(fileList[fileIndex])].some((template: Kanji) => template === kanji)) {
+                    while (!match && (gradeIndex - 1) < filenameToGradeIndex(fileList[fileIndex])) {
+                        if (kanjiTemplates[`grade${gradeIndex}`].some((template: Kanji) => template === kanji)) {
                             match = true;
                         } else {
-                            if (gradeIndex === filenameToGradeIndex(fileList[fileIndex]) - 1) {
+                            if (gradeIndex === filenameToGradeIndex(fileList[fileIndex])) {
                                 result.push(
                                 `\x1b[32m[${filenametoGrade(fileList[fileIndex])}]\x1b[39m ${key}:${
                                     i + 1

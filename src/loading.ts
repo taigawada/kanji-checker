@@ -1,7 +1,7 @@
 import rl from 'readline';
 const spin_char = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
 let spin_count = 0;
-export class Spinner {
+export default class Spinner {
         msg: string;
         repeater: ReturnType<typeof setTimeout>;
     constructor(msg: string) {
